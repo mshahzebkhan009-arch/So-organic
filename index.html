@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>So Organic | Luxury Botanical Hair & Body Care</title>
+<meta name="description" content="Advanced organic hair and body care collection with instant WhatsApp ordering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#0d231a;
+  --primary-light:#15382b;
+  --accent:#dfbc75;
+  --accent-glow:#dfbc7533;
+  --bg:#f4f3ee;
+  --card-bg:#ffffff;
+  --text:#1c2d26;
+  --muted:#62726b;
+  --border:#15382b18;
+  --white:#ffffff;
+  --transition:all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* Custom Selection & Scrollbar */
+::selection{background:var(--accent);color:var(--primary)}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--primary-light);border-radius:4px}
+
+/* Top Announcement Bar */
+.top-bar{background:linear-gradient(90deg, var(--primary), var(--primary-light));color:var(--accent);text-align:center;padding:10px 20px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;position:relative;overflow:hidden}
+.top-bar::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(223,188,117,0.15),transparent);animation:shimmer 3s infinite}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+
+/* Header & Navigation */
+header{position:sticky;top:0;z-index:100;background:rgba(244, 243, 238, 0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:var(--transition)}
+.nav{max-width:1300px;margin:auto;padding:16px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{height:46px;transition:transform 0.3s ease}
+.logo:hover{transform:scale(1.03)}
+.navlinks{display:flex;gap:32px;align-items:center}
+.navlinks a{color:var(--primary);text-decoration:none;font-weight:600;font-size:13px;letter-spacing:.05em;transition:color 0.3s ease;position:relative}
+.navlinks a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:width 0.3s ease}
+.navlinks a:hover{color:var(--accent)}
+.navlinks a:hover::after{width:100%}
+
+.cart-btn{background:var(--primary);color:var(--white);border:0;border-radius:50px;padding:12px 22px;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;cursor:pointer;box-shadow:0 10px 25px rgba(13,35,26,0.15);transition:var(--transition)}
+.cart-btn:hover{background:var(--primary-light);transform:translateY(-2px);box-shadow:0 15px 30px rgba(13,35,26,0.25)}
+.count{background:var(--accent);color:var(--primary);border-radius:50%;display:grid;place-items:center;min-width:22px;height:22px;font-size:11px;font-weight:800}
+.menu-toggle{display:none;border:0;background:none;font-size:26px;color:var(--primary);cursor:pointer}
+
+/* Immersive Creative Hero Section */
+.hero{min-height:92vh;display:grid;place-items:center;position:relative;background:var(--primary);color:var(--white);overflow:hidden;padding:80px 20px}
+.hero-bg{position:absolute;inset:0;z-index:1}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.05);animation:heroZoom 20s infinite alternate linear;opacity:0.35}
+@keyframes heroZoom{0%{transform:scale(1)}100%{transform:scale(1.12)}}
+.hero-gradient{position:absolute;inset:0;background:radial-gradient(circle at center, rgba(13,35,26,0.4) 0%, rgba(13,35,26,0.85) 100%);z-index:2}
+.hero-particles{position:absolute;inset:0;background-image:radial-gradient(var(--accent) 1px, transparent 1px);background-size:40px 40px;opacity:0.1;z-index:2}
+
+.hero-content{max-width:900px;width:100%;text-align:center;position:relative;z-index:3;animation:heroFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards}
+@keyframes heroFadeUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+
+.badge-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(223,188,117,0.15);border:1px solid rgba(223,188,117,0.4);color:var(--accent);padding:8px 18px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px;backdrop-filter:blur(10px);box-shadow:0 0 30px var(--accent-glow)}
+.badge-pill span{width:6px;height:6px;background:var(--accent);border-radius:50%;box-shadow:0 0 10px var(--accent)}
+
+.hero h1{font:italic 700 clamp(42px, 7vw, 84px)/1.05 "Playfair Display", serif;margin-bottom:24px;color:var(--white);letter-spacing:-0.02em}
+.hero h1 span{color:var(--accent);display:inline-block;font-style:normal}
+.hero p{max-width:620px;margin:0 auto 36px;color:#cbd5d0;font-size:clamp(15px, 2vw, 18px);line-height:1.7;font-weight:300}
+
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:var(--primary);padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.05em;box-shadow:0 10px 30px rgba(223,188,117,0.3);transition:var(--transition)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(223,188,117,0.5);background:#e6c88a}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.25);padding:15px 34px;border-radius:50px;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.05em;transition:var(--transition);backdrop-filter:blur(5px)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);background:rgba(223,188,117,0.05);transform:translateY(-3px)}
+
+/* Section Layouts */
+section{padding:100px 20px;position:relative}
+.container{max-width:1300px;margin:auto}
+
+.section-header{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:50px;flex-wrap:wrap}
+.section-header h2{font:700 clamp(32px, 4vw, 52px)/1.1 "Playfair Display", serif;color:var(--primary);margin-top:10px}
+.section-header p{max-width:500px;color:var(--muted);font-size:15px;line-height:1.7}
+.eyebrow{color:var(--accent);letter-spacing:.2em;text-transform:uppercase;font-size:11px;font-weight:800}
+
+/* Filters & Search */
+.controls-bar{display:flex;gap:15px;flex-wrap:wrap;align-items:center;margin-bottom:40px;background:var(--card-bg);padding:16px;border-radius:20px;border:1px solid var(--border);box-shadow:0 10px 30px rgba(13,35,26,0.03)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;flex:1}
+.filter-btn{border:1px solid var(--border);background:var(--bg);color:var(--primary);border-radius:50px;padding:10px 20px;font-size:12px;font-weight:700;cursor:pointer;transition:var(--transition)}
+.filter-btn.active, .filter-btn:hover{background:var(--primary);color:var(--white);border-color:var(--primary);transform:translateY(-2px)}
+.search-box{min-width:260px;border:1px solid var(--border);background:var(--bg);border-radius:50px;padding:12px 20px;outline:0;font:inherit;color:var(--text);font-size:13px;transition:var(--transition)}
+.search-box:focus{border-color:var(--accent);background:var(--white);box-shadow:0 0 0 4px var(--accent-glow)}
+
+/* Product Grid & Cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:24px}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:0 10px 30px rgba(13,35,26,0.04);transition:var(--transition);display:flex;flex-direction:column;position:hidden}
+.card:hover{transform:translateY(-8px);box-shadow:0 25px 50px rgba(13,35,26,0.12);border-color:rgba(223,188,117,0.4)}
+.card-pic{height:280px;background:#f9f9f7;position:relative;overflow:hidden;display:grid;place-items:center;padding:20px}
+.card-pic img{width:100%;height:100%;object-fit:contain;transition:transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)}
+.card:hover .card-pic img{transform:scale(1.08)}
+.card-pill{position:absolute;top:16px;left:16px;background:rgba(255,255,255,0.9);backdrop-filter:blur(8px);border-radius:50px;padding:6px 12px;font-size:10px;font-weight:800;letter-spacing:.05em;color:var(--primary);box-shadow:0 4px 12px rgba(0,0,0,0.05)}
+.quick-view-btn{position:absolute;bottom:16px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;background:var(--primary);color:var(--white);border:0;border-radius:50px;padding:10px 20px;font-size:12px;font-weight:700;cursor:pointer;transition:var(--transition);box-shadow:0 10px 20px rgba(0,0,0,0.2)}
+.card:hover .quick-view-btn{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.card-body{padding:24px;display:flex;flex-direction:column;flex:1}
+.card-body small{font-size:10px;letter-spacing:.2em;color:var(--accent);font-weight:800;text-transform:uppercase;margin-bottom:6px}
+.card-body h3{font:700 20px/1.2 "Playfair Display", serif;margin-bottom:8px;color:var(--primary)}
+.card-body b{font-size:12px;line-height:1.4;color:var(--primary-light);display:block;margin-bottom:10px}
+.card-body p{font-size:13px;line-height:1.6;color:var(--muted);margin-bottom:20px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.add-btn{margin-top:auto;background:var(--bg);color:var(--primary);border:1px solid var(--border);border-radius:14px;padding:14px;font-weight:700;font-size:13px;cursor:pointer;transition:var(--transition);display:flex;align-items:center;justify-content:center;gap:8px}
+.add-btn:hover{background:var(--primary);color:var(--white);border-color:var(--primary);box-shadow:0 8px 20px rgba(13,35,26,0.15)}
+
+/* Features Section */
+.features-section{background:var(--primary);color:var(--white);position:relative;overflow:hidden}
+.features-section::before{content:'';position:absolute;top:0;right:0;width:500px;height:500px;background:radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);pointer-events:none}
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:30px;margin-top:50px}
+.feature-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:40px 30px;backdrop-filter:blur(10px);transition:var(--transition)}
+.feature-box:hover{transform:translateY(-5px);border-color:var(--accent);background:rgba(255,255,255,0.05)}
+.feature-icon{width:50px;height:50px;background:var(--accent-glow);border:1px solid var(--accent);border-radius:16px;display:grid;place-items:center;color:var(--accent);font-size:20px;font-weight:800;margin-bottom:24px}
+.feature-box strong{font-size:20px;font-family:"Playfair Display", serif;display:block;margin-bottom:12px;color:var(--white)}
+.feature-box p{color:#b0c2bc;line-height:1.7;font-size:14px}
+
+/* Trust Bar */
+.trust-bar{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:40px 20px}
+.trust-grid{max-width:1300px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:20px}
+.trust-item{display:flex;align-items:center;gap:16px;padding:16px;border-radius:18px;background:var(--bg)}
+.trust-icon{width:44px;height:44px;border-radius:50%;background:var(--primary);color:var(--accent);display:grid;place-items:center;font-weight:800;font-size:16px;flex-shrink:0}
+.trust-text b{font-size:14px;color:var(--primary);display:block;margin-bottom:2px}
+.trust-text small{color:var(--muted);font-size:12px}
+
+/* FAQ Section */
+.faq-section{background:var(--bg)}
+.faq-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+details{background:var(--card-bg);border:1px solid var(--border);border-radius:20px;padding:0 24px;margin-bottom:14px;box-shadow:0 4px 15px rgba(13,35,26,0.02);transition:var(--transition)}
+details[open]{border-color:var(--accent);box-shadow:0 10px 30px rgba(13,35,26,0.06)}
+summary{cursor:pointer;padding:22px 0;font-weight:700;font-size:15px;color:var(--primary);list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::after{content:'+';font-size:20px;color:var(--accent);font-weight:400;transition:transform 0.3s ease}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);line-height:1.7;font-size:14px;padding:0 0 22px;margin:0}
+
+/* Contact Section */
+.contact-section{background:var(--primary);color:var(--white)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:30px;margin-top:40px}
+.contact-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:40px;backdrop-filter:blur(10px)}
+.contact-box b{font-size:18px;display:block;margin-bottom:12px;font-family:"Playfair Display",serif;color:var(--accent)}
+.contact-box p{color:#b0c2bc;line-height:1.7;font-size:14px;margin-bottom:20px}
+
+/* Footer */
+footer{background:#071510;color:#859a91;padding:50px 20px;border-top:1px solid rgba(255,255,255,0.05)}
+.foot-content{max-width:1300px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;font-size:13px}
+.foot-logo{color:var(--white);font-weight:700;font-family:"Playfair Display",serif;font-size:18px;margin-bottom:4px}
+.footer-dev{margin-top:12px;color:#a3b8af;font-size:13px;line-height:1.6}
+.footer-socials{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+.footer-socials a{color:var(--accent);text-decoration:none;font-weight:600;font-size:12px;transition:color 0.3s ease}
+.footer-socials a:hover{color:var(--white)}
+
+/* Drawers & Modals */
+.overlay, .modal-backdrop{position:fixed;inset:0;background:rgba(7,21,16,0.7);backdrop-filter:blur(8px);z-index:1000;opacity:0;pointer-events:none;transition:var(--transition)}
+.overlay.open, .modal-backdrop.open{opacity:1;pointer-events:auto}
+
+.drawer{position:fixed;right:0;top:0;height:100%;width:min(480px, 100%);background:var(--bg);z-index:1001;transform:translateX(100%);transition:transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);display:flex;flex-direction:column;box-shadow:-20px 0 50px rgba(0,0,0,0.3)}
+.overlay.open .drawer{transform:translateX(0)}
+.drawer-header{padding:24px 30px;background:var(--card-bg);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.drawer-header h3{font:700 24px "Playfair Display", serif;color:var(--primary)}
+.close-btn{background:none;border:0;font-size:24px;color:var(--primary);cursor:pointer;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--bg);transition:var(--transition)}
+.close-btn:hover{background:var(--primary);color:var(--white)}
+
+.drawer-items{padding:20px 30px;overflow-y:auto;flex:1}
+.cart-item{display:grid;grid-template-columns:70px 1fr auto;gap:16px;background:var(--card-bg);padding:14px;border-radius:18px;margin-bottom:12px;align-items:center;border:1px solid var(--border)}
+.cart-item img{width:70px;height:70px;object-fit:contain;background:var(--bg);border-radius:12px;padding:4px}
+.cart-item h4{font-size:14px;color:var(--primary);margin-bottom:8px}
+.qty-control{display:flex;align-items:center;gap:12px}
+.qty-control button{width:26px;height:26px;border:1px solid var(--border);background:var(--bg);border-radius:50%;cursor:pointer;font-weight:700;display:grid;place-items:center;transition:var(--transition)}
+.qty-control button:hover{background:var(--primary);color:var(--white);border-color:var(--primary)}
+.drawer-footer{padding:24px 30px;background:var(--card-bg);border-top:1px solid var(--border)}
+.checkout-main-btn{width:100%;background:#10b981;color:var(--white);border:0;border-radius:14px;padding:16px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 10px 25px rgba(16,185,129,0.3);transition:var(--transition)}
+.checkout-main-btn:hover{background:#059669;transform:translateY(-2px);box-shadow:0 15px 30px rgba(16,185,129,0.4)}
+.empty-cart{text-align:center;color:var(--muted);padding:60px 20px;font-size:14px}
+
+/* Quick View & Checkout Modals */
+.modal-container{position:fixed;inset:0;display:grid;place-items:center;padding:20px;z-index:1001;pointer-events:none}
+.modal-backdrop.open + .modal-container{pointer-events:auto}
+.modal-box{background:var(--card-bg);border-radius:28px;width:min(640px, 100%);max-height:90vh;overflow-y:auto;padding:40px;position:relative;box-shadow:0 25px 60px rgba(0,0,0,0.3);transform:scale(0.95) translateY(20px);opacity:0;transition:var(--transition)}
+.modal-backdrop.open ~ .modal-container .modal-box{transform:scale(1) translateY(0);opacity:1}
+
+.modal-img-wrap{height:300px;background:var(--bg);border-radius:20px;display:grid;place-items:center;padding:20px;margin-bottom:24px}
+.modal-img-wrap img{width:100%;height:100%;object-fit:contain}
+
+.checkout-form{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.form-input, .form-select, .form-textarea{width:100%;border:1px solid var(--border);background:var(--bg);border-radius:14px;padding:14px 18px;outline:0;font:inherit;color:var(--text);font-size:14px;transition:var(--transition)}
+.form-input:focus, .form-select:focus, .form-textarea:focus{border-color:var(--accent);background:var(--white);box-shadow:0 0 0 4px var(--accent-glow)}
+.form-full{grid-column:1/-1}
+.form-textarea{min-height:100px;resize:vertical}
+.order-summary-box{background:var(--bg);padding:16px 20px;border-radius:16px;color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:20px;border:1px solid var(--border)}
+
+/* Toast Notification */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(40px);opacity:0;background:var(--primary);color:var(--white);border-radius:50px;padding:14px 28px;z-index:2000;font-weight:700;font-size:13px;box-shadow:0 15px 35px rgba(13,35,26,0.3);transition:var(--transition);pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Responsive Adjustments */
+@media(max-width:1000px){.navlinks{display:none}.menu-toggle{display:block}.faq-grid{grid-template-columns:1fr}}
+@media(max-width:700px){.checkout-form{grid-template-columns:1fr}.form-full{grid-column:auto}.hero{min-height:85vh;padding:60px 16px}}
+</style>
+</head>
+<body>
+
+<div class="top-bar">✨ No Smoke • No Itching • Zero Formaldehyde • Up to 100% Straight Hair • Silky, Smooth & Shiny ✨</div>
+
+<header>
+  <div class="nav">
+    <a href="#home"><img class="logo" src="https://soorganicproducts.com/assets/img/so-organic-logo.png" alt="So Organic"></a>
+    <div class="navlinks">
+      <a href="#home">HOME</a>
+      <a href="#products">SHOP COLLECTION</a>
+      <a href="#benefits">THE DIFFERENCE</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="cart-btn" onclick="openCart()">🛒 Cart <span class="count" id="count">0</span></button>
+      <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Creative Immersive Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="https://soorganicproducts.com/assets/img/banner.jpg" alt="So Organic Botanical Care">
+    </div>
+    <div class="hero-gradient"></div>
+    <div class="hero-particles"></div>
+    
+    <div class="hero-content">
+      <div class="badge-pill"><span></span> Advanced Botanical Hair Technology</div>
+      <h1>Preventive, Protective & <span>Repairing Care</span></h1>
+      <p>Explore the complete So Organic collection featuring premium hair treatments, nourishing body care, advanced grooming kits, and daily essentials.</p>
+      <div class="hero-buttons">
+        <a class="btn-primary" href="#products">Explore Collection ↓</a>
+        <a class="btn-outline" href="https://wa.me/971547641762" target="_blank">WhatsApp Direct ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Curated Formulations</div>
+          <h2>Excellence in Every Bottle</h2>
+        </div>
+        <p>Filter through our premium catalog, search specialized items, add to your cart, and check out instantly via WhatsApp.</p>
+      </div>
+
+      <div class="controls-bar">
+        <div class="filters" id="filters"></div>
+        <input class="search-box" id="search" placeholder="Search products..." oninput="filterProducts()">
+      </div>
+
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section" id="benefits">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow" style="color:var(--accent)">The So Organic Edge</div>
+          <h2 style="color:var(--white)">Innovation • Quality • Passion</h2>
+        </div>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <div class="feature-icon">01</div>
+          <strong>Advanced Hair Technology</strong>
+          <p>Cutting-edge formulations focusing on preventive, protective, and deep repairing hair solutions including Botoplex and professional keratin treatments.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">02</div>
+          <strong>Complete Consumer Range</strong>
+          <p>Encompassing specialized hair care, rich body care sets, mens grooming kits, aluminum-free deodorants, and vitamin-enriched lip care.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon">03</div>
+          <strong>Seamless WhatsApp Checkout</strong>
+          <p>Direct ordering workflow that packages your complete item selection and delivery details cleanly into a direct WhatsApp order message.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">✓</div>
+        <div class="trust-text"><b>Secure Order Flow</b><small>Direct WhatsApp communication</small></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">✦</div>
+        <div class="trust-text"><b>Premium Quality</b><small>Natural botanical extracts</small></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">♡</div>
+        <div class="trust-text"><b>Complete Details</b><small>Global shipping coverage</small></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">↗</div>
+        <div class="trust-text"><b>Instant Support</b><small>Expert customer guidance</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container faq-grid">
+      <div>
+        <div class="eyebrow">Got Questions?</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:40px;color:var(--primary);margin-top:10px;">Everything you need to know.</h2>
+      </div>
+      <div>
+        <details open>
+          <summary>Who is the best candidate for So Organic Professional Treatments?</summary>
+          <p>Ideal for clients with frizzy, damaged, or chemically processed hair across fine, coarse, curly, permed, or relaxed textures.</p>
+        </details>
+        <details>
+          <summary>What kind of finish can I expect?</summary>
+          <p>Frizz-free, radiant shine, silky manageability with natural body and bounce retained depending on your original hair texture.</p>
+        </details>
+        <details>
+          <summary>Is it safe for color-treated or highlighted hair?</summary>
+          <p>Yes, our treatments condition and seal the hair cuticle, helping enhance color vibrancy and shielding hair from daily damage.</p>
+        </details>
+        <details>
+          <summary>How long do the professional treatments last?</summary>
+          <p>Results last between 10 to 12 weeks when paired consistently with the So Organic home aftercare maintenance range.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow" style="color:var(--accent)">Get in Touch</div>
+          <h2 style="color:var(--white)">Let’s talk gorgeous hair.</h2>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <div class="contactBox contact-box">
+          <b>Official Inquiries</b>
+          <p>info@so-organic.com.pk<br>contact@so-organic.com.pk</p>
+          <a class="btn-primary" href="mailto:info@so-organic.com.pk" style="display:inline-block;padding:12px 24px;font-size:12px;">Email Us</a>
+        </div>
+        <div class="contactBox contact-box">
+          <b>Direct WhatsApp Line</b>
+          <p>+971 54 764 1762<br>Available globally for consultation & orders.</p>
+          <a class="btn-primary" href="https://wa.me/971547641762" target="_blank" style="display:inline-block;padding:12px 24px;font-size:12px;">Chat on WhatsApp ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-content">
+    <div>
+      <div class="foot-logo">So Organic.</div>
+      <div>Innovation • Quality • Passion</div>
+      <div class="footer-dev">Developed by <strong>Muhammad Shahzeb</strong></div>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/theshahzebpk/" target="_blank">Facebook</a>
+        <a href="https://instagram.com/theshahzeb.pk" target="_blank">Instagram</a>
+        <a href="https://tiktok.com/@theshahzeb.pk" target="_blank">TikTok</a>
+        <a href="https://youtube.com/@theshahzebpk" target="_blank">YouTube</a>
+        <a href="https://x.com/TheShahzebpk" target="_blank">X</a>
+        <a href="https://wa.me/923119031258" target="_blank">WhatsApp: +92 311 9031258</a>
+      </div>
+    </div>
+    <div>© 2026 So Organic. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<!-- Cart Drawer -->
+<div class="overlay" id="cartOverlay" onclick="if(event.target===this)closeCart()">
+  <aside class="drawer">
+    <div class="drawer-header">
+      <h3>Your Shopping Cart</h3>
+      <button class="close-btn" onclick="closeCart()">×</button>
+    </div>
+    <div class="drawer-items" id="drawerItems"></div>
+    <div class="drawer-footer">
+      <button class="checkout-main-btn" onclick="openCheckoutModal()">Proceed to WhatsApp Checkout →</button>
+    </div>
+  </aside>
+</div>
+
+<!-- Quick View Modal -->
+<div class="modal-backdrop" id="quickModalBackdrop" onclick="closeQuickModal()"></div>
+<div class="modal-container">
+  <div class="modal-box" id="quickModalBox">
+    <button class="close-btn" onclick="closeQuickModal()" style="position:absolute;right:20px;top:20px">×</button>
+    <div class="modal-img-wrap"><img id="qImg" alt="Product view"></div>
+    <div class="eyebrow">So Organic Exclusive</div>
+    <h3 id="qName" style="font-family:'Playfair Display',serif;font-size:26px;color:var(--primary);margin:8px 0;"></h3>
+    <b id="qTag" style="color:var(--primary-light);font-size:13px;display:block;margin-bottom:12px;"></b>
+    <p id="qDesc" style="color:var(--muted);line-height:1.7;font-size:14px;margin-bottom:24px;"></p>
+    <button class="add-btn" id="qAddBtn" style="width:100%;background:var(--primary);color:var(--white);">＋ Add to Cart</button>
+  </div>
+</div>
+
+<!-- Checkout Details Modal -->
+<div class="modal-backdrop" id="checkoutModalBackdrop" onclick="closeCheckoutModal()"></div>
+<div class="modal-container">
+  <div class="modal-box" style="width:min(700px, 100%)">
+    <button class="close-btn" onclick="closeCheckoutModal()" style="position:absolute;right:20px;top:20px">×</button>
+    <div class="eyebrow">Secure Order Processing</div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:28px;color:var(--primary);margin:6px 0 12px">Complete Your Delivery Details</h3>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:20px">Fill out your information below to package your order directly for WhatsApp transmission.</p>
+    
+    <div class="order-summary-box" id="orderSummaryBox"></div>
+    
+    <form class="checkout-form" id="checkoutForm" onsubmit="submitOrderToWhatsApp(event)">
+      <input class="form-input" id="custName" required placeholder="Full Name *">
+      <input class="form-input" id="custPhone" required placeholder="Mobile / WhatsApp Number *" type="tel">
+      <input class="form-input" id="custCity" required placeholder="City *">
+      <select class="form-select" id="custCountry" required>
+        <option value="">Select Country *</option>
+        <option>United Arab Emirates</option>
+        <option>Pakistan</option>
+        <option>Saudi Arabia</option>
+        <option>Qatar</option>
+        <option>Kuwait</option>
+        <option>Oman</option>
+        <option>Bahrain</option>
+        <option>United Kingdom</option>
+        <option>United States</option>
+        <option>Canada</option>
+        <option>Australia</option>
+        <option>Other</option>
+      </select>
+      <input class="form-input" id="custPostal" placeholder="Postal / ZIP Code">
+      <input class="form-input" id="custEmail" placeholder="Email Address (optional)" type="email">
+      <textarea class="form-textarea form-full" id="custAddress" required placeholder="Complete Delivery Address (Street, Building, Area) *"></textarea>
+      <textarea class="form-textarea form-full" id="custNote" placeholder="Special delivery notes or instructions (optional)"></textarea>
+      <button class="checkout-main-btn form-full" type="submit">Send Order on WhatsApp →</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toastNotification"></div>
+
+<script>
+const PRODUCTS = [
+  {"id": 1, "cat": "Consumer", "name": "BOTOPLEX HAIR TREATMENT", "tag": "To help fill the hair, make it smooth, and reduce frizz.", "desc": "Botoplex Treatment combines natural organic extracts designed to penetrate and repair internal damage while progressively straightening; the site says it helps keep hair smooth, silky and shiny.", "img": "https://soorganicproducts.com/assets/img/group-product-img-1.jpg"},
+  {"id": 2, "cat": "Consumer", "name": "PROTEIN HAIR TREATMENT", "tag": "Restore hair's elasticity so that it stretches normally and then bounces back", "desc": "A quality product made with advanced hair technology for preventive, protective and repairing hair; the site says it also gives discipline and straightness.", "img": "https://soorganicproducts.com/assets/img/group-product-img-2.jpg"},
+  {"id": 3, "cat": "Consumer", "name": "SO ORGANIC INSTANT REPAIR 4-PIECE HAIR TREATMENT PACK", "tag": "Shampoo, Conditioner, Instant Repair Hair Mask & Hair Serum", "desc": "Formulated with Keratin and Argan Oil to deeply repair and moisturize. Salt & Sulfate Free and intended to prolong color and hair treatments.", "img": "https://soorganicproducts.com/assets/img/hair.PNG"},
+  {"id": 4, "cat": "Consumer", "name": "SO ORGANIC MEN'S COMPLETE GROOMING & STYLING KIT", "tag": "Complete grooming and styling collection", "desc": "Includes Scrub Wash, Face Scrub, VALVET for beard and hair, AQUAWax and Strong Hold Styling Cream.", "img": "https://soorganicproducts.com/assets/img/man-face.PNG"},
+  {"id": 5, "cat": "Consumer", "name": "VANILLA BODY CARE SET – OIL, SCRUBS & LOTION", "tag": "Deep hydration, gentle exfoliation & long-lasting softness", "desc": "Blend of Body Oil, Body Scrub Gel, Sugar Oil Scrub and Body Lotion infused with natural vanilla extracts and nourishing botanicals.", "img": "https://soorganicproducts.com/assets/img/b-o-s-g.PNG"},
+  {"id": 6, "cat": "Consumer", "name": "SO ORGANIC MACADAMIA, KERATIN & ARGAN HAIR THERAPY KIT", "tag": "Deep, targeted nourishment for hair", "desc": "Combines two shampoos, conditioner and Instant Repair Hair Mask with Macadamia Nuts Oil, Keratin and Argan Oil; completed with Leave-in Conditioner and Hair Serum. Salt & Sulfate Free.", "img": "https://soorganicproducts.com/assets/img/oil.PNG"},
+  {"id": 7, "cat": "Hair Care", "name": "Macadamia Nuts Oil Shampoo", "tag": "Ultimate nourishment to Dry & Damaged Hair", "desc": "Concentrated shampoo free of the abrasiveness of salt and sulfate of regular shampoo. It gently cleanses while organic/natural extracts, oils, amino and fatty acids and vitamins moisturize and strengthen hair.", "img": "https://soorganicproducts.com/assets/img/m-nuts-shampo.jpg"},
+  {"id": 8, "cat": "Hair Care", "name": "Manuka Honey & Wheat Protein Shampoo", "tag": "Strengthens the hair shaft, provides moisture, prevents breakage and adds shine.", "desc": "Concentrated shampoo described as salt- and sulfate-free, with organic/natural extracts, oils, amino and fatty acids and vitamins.", "img": "https://soorganicproducts.com/assets/img/product-img-2.jpg"},
+  {"id": 9, "cat": "Hair Care", "name": "Keratin Smooth Argan Oil Shampoo", "tag": "Restore Moisture to Dry & Damaged Hair", "desc": "Concentrated shampoo described as salt- and sulfate-free, with organic/natural extracts, oils, amino and fatty acids and vitamins.", "img": "https://soorganicproducts.com/assets/img/kara-smooth-argo-shampoo.PNG"},
+  {"id": 10, "cat": "Hair Care", "name": "Keratin Smooth Argan Oil Conditioner", "tag": "Intense Repair, Color Protection with Hydrolyzed Keratin & Argan Oil", "desc": "Maintenance conditioner with natural keratin, Moroccan argan oil, amino and fatty acids, vitamins and natural extracts to repair damage and keep hair hydrated and manageable.", "img": "https://soorganicproducts.com/assets/img/kara-smooth-arga-oil-condi.PNG"},
+  {"id": 11, "cat": "Hair Care", "name": "Instant Repair Hair Mask", "tag": "Instant Nourishment and Damage Repair", "desc": "Deep nourishing treatment for damaged hair; provides instant repair and a shiny, healthy look.", "img": "https://soorganicproducts.com/assets/img/instant-repair.PNG"},
+  {"id": 12, "cat": "Hair Care", "name": "Argan Oil Hair Serum", "tag": "Prevent Split End; energize & awaken weak or dormant hair", "desc": "Formula with keratin and natural Silicon helping protect hair from splitting, increase brilliance and shine, and protect from environmental stressors.", "img": "https://soorganicproducts.com/assets/img/karar-hair-serum.jpg"},
+  {"id": 13, "cat": "Hair Care", "name": "Leave in Conditioner", "tag": "Shiny & Silky Hair | Intense Repair", "desc": "Protect Hair From Damage with lightweight leave-in botanical shield.", "img": "https://soorganicproducts.com/assets/img/leave-in-condi.jpg"},
+  {"id": 14, "cat": "Hair Care", "name": "Protein Hair Treatment", "tag": "Restore Hair Elasticity So that it Stretches Normally and then Bounces Back", "desc": "Hair treatment focused on restoring internal elasticity and hair strength.", "img": "https://soorganicproducts.com/assets/img/protien-hair-1.jpg"},
+  {"id": 15, "cat": "Hair Care", "name": "Coffee Keratin Shampoo", "tag": "Brazilian Formula", "desc": "Helps to prolong the effect of hair treatment with invigorating coffee extracts.", "img": "https://soorganicproducts.com/assets/img/coffe-kare-shampo.jpg"},
+  {"id": 16, "cat": "Body Care", "name": "Body Lotion Vanilla", "tag": "Lock in Moisture All Day; Improve Skin Radiance", "desc": "Silky Smooth Finish; Gentle and nourishing for all skin types.", "img": "https://soorganicproducts.com/assets/img/bd-lo.jpg"},
+  {"id": 17, "cat": "Body Care", "name": "Body Lotion Lavender", "tag": "Soothing Relief for Stressed Skin", "desc": "Quick absorption for instant hydration; promotes skin repair and relaxation.", "img": "https://soorganicproducts.com/assets/img/bd-lo-la.jpg"},
+  {"id": 18, "cat": "Body Care", "name": "Body Oil Lemon Grass & Rosemary", "tag": "Invigorates and Energizes Skin; Deeply Hydrates", "desc": "Rich in antioxidants and essential botanical oils.", "img": "https://soorganicproducts.com/assets/img/bd-oil.png"},
+  {"id": 19, "cat": "Body Care", "name": "Sugar Oil Scrub Lavender", "tag": "Gentle Exfoliation; Intense Hydration", "desc": "Natural sugar crystals enriched with soothing lavender essential oils.", "img": "https://soorganicproducts.com/assets/img/suger-oil-scrub.jpg"},
+  {"id": 20, "cat": "Men & Grooming", "name": "Face Body & Scrub Wash", "tag": "Deep Cleansing Formula", "desc": "Energizing daily scrub wash for face and body.", "img": "https://soorganicproducts.com/assets/img/Face-body-scrub-wash.PNG"},
+  {"id": 21, "cat": "Men & Grooming", "name": "So Organic AquaWax", "tag": "Strong Hold", "desc": "Professional hair styling wax with flexible strong hold and clean finish.", "img": "https://soorganicproducts.com/assets/img/aquawaz.PNG"},
+  {"id": 22, "cat": "Deodorants", "name": "So Organic Power Dry", "tag": "Dry Confidence 0% Alcohol", "desc": "48 Hours New Improved Protection against odor and moisture.", "img": "https://soorganicproducts.com/assets/img/power-dry.JPG"},
+  {"id": 23, "cat": "Deodorants", "name": "So Organic Workout Hi-Impact", "tag": "Odour Control 0% Alcohol", "desc": "48 Hours high-impact anti-perspirant formulation.", "img": "https://soorganicproducts.com/assets/img/workout.PNG"},
+  {"id": 24, "cat": "Lip Care", "name": "So Organic Lip Balm", "tag": "Vitamin C Enriched", "desc": "Deeply moisturizes and protects dry lips with Vitamin C and natural waxes.", "img": "https://soorganicproducts.com/assets/img/lip-blam-blue.JPG"}
+];
+
+let cart = JSON.parse(localStorage.getItem("soOrganicCart") || "[]");
+const categories = ["All", ...new Set(PRODUCTS.map(p => p.cat))];
+let activeCategory = "All";
+
+// Initialize Filter Buttons
+document.getElementById("filters").innerHTML = categories.map((c, i) => 
+  `<button class="filter-btn ${i === 0 ? 'active' : ''}" onclick="setCategory(this, '${c.replace(/'/g, "\\'")}')">${c}</button>`
+).join("");
+
+function renderProducts() {
+  const grid = document.getElementById("grid");
+  grid.innerHTML = PRODUCTS.map(p => `
+    <article class="card" data-cat="${p.cat}" data-search="${(p.name + ' ' + p.tag + ' ' + p.desc).toLowerCase()}">
+      <div class="card-pic">
+        <span class="card-pill">${p.cat}</span>
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        <button class="quick-view-btn" onclick="openQuickModal(${p.id})">Quick View</button>
+      </div>
+      <div class="card-body">
+        <small>SO ORGANIC</small>
+        <h3>${p.name}</h3>
+        <b>${p.tag}</b>
+        <p>${p.desc}</p>
+        <button class="add-btn" onclick="addToCart(${p.id})">＋ Add to Cart</button>
+      </div>
+    </article>
+  `).join("");
+}
+
+function setCategory(btn, cat) {
+  activeCategory = cat;
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  filterProducts();
+}
+
+function filterProducts() {
+  const query = document.getElementById("search").value.toLowerCase();
+  document.querySelectorAll(".card").forEach(card => {
+    const cat = card.dataset.cat;
+    const text = card.dataset.search;
+    const matches = (activeCategory === "All" || cat === activeCategory) && text.includes(query);
+    card.style.display = matches ? "flex" : "none";
+  });
+}
+
+function saveCart() {
+  localStorage.setItem("soOrganicCart", JSON.stringify(cart));
+  renderCartDrawer();
+  updateCartCount();
+}
+
+function updateCartCount() {
+  document.getElementById("count").textContent = cart.reduce((acc, item) => acc + item.qty, 0);
+}
+
+function addToCart(id) {
+  const product = PRODUCTS.find(p => p.id === id);
+  const existing = cart.find(item => item.id === id);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ id, qty: 1 });
+  }
+  saveCart();
+  showToast(`${product.name} added to cart`);
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty < 1) {
+    cart = cart.filter(i => i.id !== id);
+  }
+  saveCart();
+}
+
+function renderCartDrawer() {
+  const container = document.getElementById("drawerItems");
+  if (!cart.length) {
+    container.innerHTML = '<div class="empty-cart">Your shopping cart is currently empty.<br><br>Explore our collection and add your favorite items.</div>';
+    return;
+  }
+  container.innerHTML = cart.map(item => {
+    const p = PRODUCTS.find(y => y.id === item.id);
+    return `
+      <div class="cart-item">
+        <img src="${p.img}" alt="${p.name}">
+        <div>
+          <h4 style="font-size:13px;margin-bottom:6px">${p.name}</h4>
+          <div class="qty-control">
+            <button onclick="changeQty(${p.id}, -1)">−</button>
+            <b>${item.qty}</b>
+            <button onclick="changeQty(${p.id}, 1)">+</button>
+          </div>
+        </div>
+        <button class="close-btn" onclick="cart = cart.filter(i => i.id !== ${p.id}); saveCart();" style="width:28px;height:28px;font-size:16px">×</button>
+      </div>
+    `;
+  }).join("");
+}
+
+function openCart() {
+  renderCartDrawer();
+  document.getElementById("cartOverlay").classList.add("open");
+}
+
+function closeCart() {
+  document.getElementById("cartOverlay").classList.remove("open");
+}
+
+function openQuickModal(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  document.getElementById("qImg").src = p.img;
+  document.getElementById("qName").textContent = p.name;
+  document.getElementById("qTag").textContent = p.tag;
+  document.getElementById("qDesc").textContent = p.desc;
+  document.getElementById("qAddBtn").onclick = () => {
+    addToCart(id);
+    closeQuickModal();
+    openCart();
+  };
+  document.getElementById("quickModalBackdrop").classList.add("open");
+}
+
+function closeQuickModal() {
+  document.getElementById("quickModalBackdrop").classList.remove("open");
+}
+
+function openCheckoutModal() {
+  if (!cart.length) {
+    showToast("Please add items to your cart first.");
+    return;
+  }
+  closeCart();
+  const summaryHTML = cart.map(item => {
+    const p = PRODUCTS.find(y => y.id === item.id);
+    return `• ${p.name} × ${item.qty}`;
+  }).join("<br>");
+  document.getElementById("orderSummaryBox").innerHTML = "<b>Order Summary:</b><br>" + summaryHTML;
+  document.getElementById("checkoutModalBackdrop").classList.add("open");
+}
+
+function closeCheckoutModal() {
+  document.getElementById("checkoutModalBackdrop").classList.remove("open");
+}
+
+function submitOrderToWhatsApp(e) {
+  e.preventDefault();
+  const lines = cart.map(item => {
+    const p = PRODUCTS.find(y => y.id === item.id);
+    return `• ${p.name} × ${item.qty}`;
+  }).join("\n");
+
+  const message = `Hello So Organic, I would like to place an order.\n\nCUSTOMER DETAILS\nName: ${document.getElementById("custName").value.trim()}\nMobile: ${document.getElementById("custPhone").value.trim()}\nCity: ${document.getElementById("custCity").value.trim()}\nCountry: ${document.getElementById("custCountry").value.trim()}\nPostal / ZIP: ${document.getElementById("custPostal").value.trim() || "Not provided"}\nEmail: ${document.getElementById("custEmail").value.trim() || "Not provided"}\nAddress: ${document.getElementById("custAddress").value.trim()}\n\nORDER ITEMS\n${lines}\n\nNote: ${document.getElementById("custNote").value.trim() || "None"}`;
+
+  window.open(`https://wa.me/971547641762?text=${encodeURIComponent(message)}`, "_blank");
+}
+
+function showToast(text) {
+  const toast = document.getElementById("toastNotification");
+  toast.textContent = text;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2500);
+}
+
+function toggleMobileMenu() {
+  const nav = document.querySelector(".navlinks");
+  nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+  if (nav.style.display === "flex") {
+    nav.style.position = "absolute";
+    nav.style.top = "76px";
+    nav.style.left = "0";
+    nav.style.right = "0";
+    nav.style.background = "var(--card-bg)";
+    nav.style.flexDirection = "column";
+    nav.style.padding = "30px";
+    nav.style.borderBottom = "1px solid var(--border)";
+    nav.style.boxShadow = "0 20px 30px rgba(0,0,0,0.1)";
+  }
+}
+
+renderProducts();
+updateCartCount();
+</script>
+</body>
+</html>
